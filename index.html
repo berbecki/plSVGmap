@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="js/vendor/mootools-core-1.5.0.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+			$(window).addEvent('domready', function () {
+				var myMap = new PlMap();
+			});
+		</script>
+        <style type="text/css">
+			svg#map_pl{margin:0 auto;width:500px;height:500px;display:block;}
+			svg#map_pl path{fill:#efebe9;stroke:#c7bdbd;stroke-miterlimit:10;}
+			svg#map_pl path:hover{fill:#c7bdbd;stroke:#c7bdbd;cursor:pointer;}
+			svg#map_pl path:focus,.svg#map_pl path:active{fill:#dddddd;}
+			svg#map_pl path.selected {fill: #333;}
+			.info-box {display:none;background:rgba(255,255,255,.9);border-radius: 3px;padding:3px 10px;-webkit-box-shadow: 0 0 4px 0 rgba(0,0,0,0.3);box-shadow: 0 0 4px 0 rgba(0,0,0,0.3);border:1px solid #bcbcbc;color:#444;}
+			.info-box.visible {display:block}
+			.reg{fill:#F2F2F2;stroke:#999999;stroke-miterlimit:10;display:block;}
+			
+			#info-box-over {background:rgba(0,0,0,0.2);position:fixed;width:100%;height:100%;z-index: 1000;top:0;left:0;display:none;}
+			#info-box-over > div {background:#fff;width:40%;margin: 20% auto;padding:20px;border-radius:8px;-webkit-box-shadow: 0 0 14px 0 rgba(0,0,0,0.5);box-shadow: 0 0 14px 0 rgba(0,0,0,0.5);position:relative;}
+			#info-box-over #ibv-close {position:absolute;width:30px;height:30px;border:3px solid #333;-webkit-border-radius: 30px;
+border-radius: 30px;cursor: pointer;top:-15px;right:-15px;background:#fff;text-indent:-99999px;-webkit-box-shadow: 1px 1px 3px 0 rgba(0,0,0,0.5);
+box-shadow: 1px 1px 3px 0 rgba(0,0,0,0.5);}
+		</style>
+    </head>
+    <body>
+        <article>
+			<header id="header">
+				<h3 id="page-title">Wektorowa (SVG) Mapa polski</h3>
+			</header>
+			<svg id="map_pl"></svg>
+   			<ul id="map_p_list" style="display:none;">
+   				<li id="reg_02" data-id="dolnoslaskie">
+   					<div class="l-info">
+   						<h3>dolnośląskie</h3>
+   						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos culpa exercitationem! Autem vel suscipit aperiam, molestias beatae dolorem totam fuga quisquam, architecto minima molestiae quas eius! Dolor ex, iste.</p>
+   					</div>
+   				</li>
+   				<li id="reg_04" data-id="kujawsko-pomorskie">
+   					<div class="l-info">
+   						<h3>kujawsko-pomorskie</h3>
+   						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos culpa exercitationem! Autem vel suscipit aperiam, molestias beatae dolorem totam fuga quisquam, architecto minima molestiae quas eius! Dolor ex, iste.</p>
+   					</div>
+   				</li>
+   				<li id="reg_06" data-id="lubelskie">
+   					<div class="l-info">
+   						<h3>lubelskie</h3>
+   						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos culpa exercitationem! Autem vel suscipit aperiam, molestias beatae dolorem totam fuga quisquam, architecto minima molestiae quas eius! Dolor ex, iste.</p>
+   					</div>
+   				</li>
+   				<li id="reg_08" data-id="lubuskie">
+   					<div class="l-info">
+   						<h3>lubuskie</h3>
+   						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos culpa exercitationem! Autem vel suscipit aperiam, molestias beatae dolorem totam fuga quisquam, architecto minima molestiae quas eius! Dolor ex, iste.</p>
+   					</div>
+   				</li>
+   				<li id="reg_10" data-id="lodzkie">
+   					<div class="l-info">
+   						<h3>łódzkie</h3>
+   						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos culpa exercitationem! Autem vel suscipit aperiam, molestias beatae dolorem totam fuga quisquam, architecto minima molestiae quas eius! Dolor ex, iste.</p>
+   					</div>
+   				</li>
+   				<li id="reg_12" data-id="malopolskie">
+   					<div class="l-info">
+   						<h3>małopolskie</h3>
+   						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos culpa exercitationem! Autem vel suscipit aperiam, molestias beatae dolorem totam fuga quisquam, architecto minima molestiae quas eius! Dolor ex, iste.</p>
+   					</div>
+   				</li>
+   				<li id="reg_14" data-id="mazowieckie">
+   					<div class="l-info">
+   						<h3>mazowieckie</h3>
+   						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos culpa exercitationem! Autem vel suscipit aperiam, molestias beatae dolorem totam fuga quisquam, architecto minima molestiae quas eius! Dolor ex, iste.</p>
+   					</div>
+   				</li>
+   				<li id="reg_16" data-id="opolskie">
+   					<div class="l-info">
+   						<h3>opolskie</h3>
+   						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos culpa exercitationem! Autem vel suscipit aperiam, molestias beatae dolorem totam fuga quisquam, architecto minima molestiae quas eius! Dolor ex, iste.</p>
+   					</div>
+   				</li>
+   				<li id="reg_18" data-id="podkarpackie">
+   					<div class="l-info">
+   						<h3>podkarpackie</h3>
+   						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos culpa exercitationem! Autem vel suscipit aperiam, molestias beatae dolorem totam fuga quisquam, architecto minima molestiae quas eius! Dolor ex, iste.</p>
+   					</div>
+   				</li>
+   				<li id="reg_20" data-id="podlaskie">
+   					<div class="l-info">
+   						<h3>podlaskie</h3>
+   						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos culpa exercitationem! Autem vel suscipit aperiam, molestias beatae dolorem totam fuga quisquam, architecto minima molestiae quas eius! Dolor ex, iste.</p>
+   					</div>
+   				</li>
+   				<li id="reg_22" data-id="pomorskie">
+   					<div class="l-info">
+   						<h3>pomorskie</h3>
+   						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos culpa exercitationem! Autem vel suscipit aperiam, molestias beatae dolorem totam fuga quisquam, architecto minima molestiae quas eius! Dolor ex, iste.</p>
+   					</div>
+   				</li>
+   				<li id="reg_24" data-id="slaskie">
+   					<div class="l-info">
+   						<h3>śląskie</h3>
+   						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos culpa exercitationem! Autem vel suscipit aperiam, molestias beatae dolorem totam fuga quisquam, architecto minima molestiae quas eius! Dolor ex, iste.</p>
+   					</div>
+   				</li>
+   				<li id="reg_26" data-id="swietokrzyskie">
+   					<div class="l-info">
+   						<h3>świętokrzyskie</h3>
+   						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos culpa exercitationem! Autem vel suscipit aperiam, molestias beatae dolorem totam fuga quisquam, architecto minima molestiae quas eius! Dolor ex, iste.</p>
+   					</div>
+   				</li>
+   				<li id="reg_28" data-id="warminsko-mazurskie">
+   					<div class="l-info">
+   						<h3>warmińsko-mazurskie</h3>
+   						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos culpa exercitationem! Autem vel suscipit aperiam, molestias beatae dolorem totam fuga quisquam, architecto minima molestiae quas eius! Dolor ex, iste.</p>
+   					</div>
+   				</li>
+   				<li id="reg_30" data-id="wielkopolskie">
+   					<div class="l-info">
+   						<h3>wielkopolskie</h3>
+   						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos culpa exercitationem! Autem vel suscipit aperiam, molestias beatae dolorem totam fuga quisquam, architecto minima molestiae quas eius! Dolor ex, iste.</p>
+   					</div>
+   				</li>
+   				<li id="reg_32" data-id="zachodniopomorskie">
+   					<div class="l-info">
+   						<h3>zachodniopomorskie</h3>
+   						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, quos culpa exercitationem! Autem vel suscipit aperiam, molestias beatae dolorem totam fuga quisquam, architecto minima molestiae quas eius! Dolor ex, iste.</p>
+   					</div>
+   				</li>
+   			</ul>
+	   	</article>
+	   	<footer id="footer">
+	   		<small>designed 2014 by JB</small>
+	   	</footer>
+    </body>
+</html>
